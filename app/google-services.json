@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "418459605993",
+    "project_id": "asmui-568bb",
+    "storage_bucket": "asmui-568bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418459605993:android:78f1ccbd914181f3818978",
+        "android_client_info": {
+          "package_name": "nam.zuchu.asm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418459605993-8sthbjfj7tvldc5d5pt6gn1llksjoqpp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nam.zuchu.asm",
+            "certificate_hash": "13b23357bd47cefe849c1c756acb5495f09121bd"
+          }
+        },
+        {
+          "client_id": "418459605993-r1hrkobir4n5h3u5p5s63qcibsa88h75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApqdi1nrUTl8iY0ePj1Go0sFl0UEYF0p4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418459605993-r1hrkobir4n5h3u5p5s63qcibsa88h75.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

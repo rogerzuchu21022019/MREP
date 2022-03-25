@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/drawerHome">
+
+
+    <fragment
+        android:id="@+id/drawerHome"
+        android:name="nam.zuchu.asm.fragments.features.HomeFM"
+        android:label="HomeFM"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/drawerExpenditure"
+        android:name="nam.zuchu.asm.fragments.features.ExpenditureFM"
+        android:label="ExpenditureFM"
+        tools:layout="@layout/fragment_expenditure" />
+    <fragment
+        android:id="@+id/drawerReceipt"
+        android:name="nam.zuchu.asm.fragments.features.ReceiptFM"
+        android:label="ReceiptFM"
+        tools:layout="@layout/fragment_receipt" />
+    <dialog
+        android:id="@+id/drawerExit"
+        android:name="nam.zuchu.asm.fragments.login.BottomSheetFM"
+        android:label="ReceiptFM"
+        tools:layout="@layout/fragment_bottom_sheet" >
+        <action
+            android:id="@+id/action_drawerExit_to_drawerHome2"
+            app:destination="@id/drawerHome" />
+    </dialog>
+    <fragment
+        android:id="@+id/drawerStatistic"
+        android:name="nam.zuchu.asm.fragments.features.StatisticFM"
+        android:label="StatisticFM"
+        tools:layout="@layout/fragment_statistic" />
+    <fragment
+        android:id="@+id/drawerIntroduce"
+        android:name="nam.zuchu.asm.fragments.features.IntroduceFM"
+        android:label="IntroductFM"
+        tools:layout="@layout/fragment_introduce" />
+</navigation>
