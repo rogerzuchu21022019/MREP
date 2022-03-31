@@ -10,13 +10,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvTypesOfName"
-            tools:listitem="@layout/item_rv_types_of_name"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="vertical"
+        <TextView
+            android:text="Detail of Receipts"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rvTypesOfName"-->
+<!--            tools:listitem="@layout/item_rv_types_of_name"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"/>-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

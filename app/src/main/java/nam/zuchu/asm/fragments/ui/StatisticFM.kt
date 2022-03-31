@@ -1,4 +1,4 @@
-package nam.zuchu.asm.fragments.features
+package nam.zuchu.asm.fragments.ui
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import nam.zuchu.asm.databinding.FragmentStatisticBinding
 
 class StatisticFM : Fragment() {
     lateinit var fmStatisticBinding: FragmentStatisticBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

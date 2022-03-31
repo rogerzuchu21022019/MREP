@@ -1,7 +1,5 @@
-package nam.zuchu.asm.fragments.login
+package nam.zuchu.asm.fragments.features.login
 
-import androidx.navigation.Navigation.findNavController
-import android.view.animation.Animation
 import androidx.navigation.NavController
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,14 +7,11 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.android.gms.tasks.OnCompleteListener
 import androidx.navigation.NavDirections
 import android.app.Activity
 import android.view.View
-import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import nam.zuchu.asm.R
 import nam.zuchu.asm.databinding.FragmentForgetPasswordBinding

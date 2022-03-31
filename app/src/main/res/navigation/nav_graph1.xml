@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/forgetPasswordFM"
         tools:layout="@layout/fragment_forget_password"
-        android:name="nam.zuchu.asm.fragments.login.ForgetPasswordFM"
+        android:name="nam.zuchu.asm.fragments.features.login.ForgetPasswordFM"
         android:label="ForgetPasswordFM" >
         <action
             android:id="@+id/action_forgetPasswordFM_to_loginFM"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/drawerSignUp"
         tools:layout="@layout/fragment_signup"
-        android:name="nam.zuchu.asm.fragments.login.SignUpFM"
+        android:name="nam.zuchu.asm.fragments.features.login.SignUpFM"
         android:label="SignUpFM" >
         <action
             android:id="@+id/action_signUpFM_to_loginFM"
@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/loginFM"
         tools:layout="@layout/fragment_login"
-        android:name="nam.zuchu.asm.fragments.login.LoginFM"
+        android:name="nam.zuchu.asm.fragments.features.login.LoginFM"
         android:label="LoginFM" >
         <action
             android:id="@+id/action_loginFM_to_forgetPasswordFM"

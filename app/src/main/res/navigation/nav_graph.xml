@@ -8,22 +8,36 @@
 
     <fragment
         android:id="@+id/drawerHome"
-        android:name="nam.zuchu.asm.fragments.features.HomeFM"
+        android:name="nam.zuchu.asm.fragments.ui.HomeFM"
         android:label="HomeFM"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/drawerExpenditure"
-        android:name="nam.zuchu.asm.fragments.features.ExpenditureFM"
+        android:name="nam.zuchu.asm.fragments.ui.ExpenditureFM"
         android:label="ExpenditureFM"
-        tools:layout="@layout/fragment_expenditure" />
+        tools:layout="@layout/fragment_expenditure" >
+        <action
+            android:id="@+id/action_drawerExpenditure_to_addNewExpenditureBottomSheetFragment"
+            app:destination="@id/addNewExpenditureBottomSheetFragment" />
+        <action
+            android:id="@+id/action_drawerExpenditure_to_addNewDetailExpenditureBSFM"
+            app:destination="@id/addNewDetailExpenditureBSFM" />
+    </fragment>
     <fragment
         android:id="@+id/drawerReceipt"
-        android:name="nam.zuchu.asm.fragments.features.ReceiptFM"
+        android:name="nam.zuchu.asm.fragments.ui.ReceiptFM"
         android:label="ReceiptFM"
-        tools:layout="@layout/fragment_receipt" />
+        tools:layout="@layout/fragment_receipt" >
+        <action
+            android:id="@+id/action_drawerReceipt_to_addNewReceiptBottomSheetFragment2"
+            app:destination="@id/addNewReceiptBottomSheetFragment" />
+        <argument
+            android:name="type"
+            app:argType="nam.zuchu.asm.models.types.TypesItem" />
+    </fragment>
     <dialog
         android:id="@+id/drawerExit"
-        android:name="nam.zuchu.asm.fragments.login.BottomSheetFM"
+        android:name="nam.zuchu.asm.fragments.features.login.BottomSheetFM"
         android:label="ReceiptFM"
         tools:layout="@layout/fragment_bottom_sheet" >
         <action
@@ -32,12 +46,54 @@
     </dialog>
     <fragment
         android:id="@+id/drawerStatistic"
-        android:name="nam.zuchu.asm.fragments.features.StatisticFM"
+        android:name="nam.zuchu.asm.fragments.ui.StatisticFM"
         android:label="StatisticFM"
         tools:layout="@layout/fragment_statistic" />
     <fragment
         android:id="@+id/drawerIntroduce"
-        android:name="nam.zuchu.asm.fragments.features.IntroduceFM"
+        android:name="nam.zuchu.asm.fragments.ui.IntroduceFM"
         android:label="IntroductFM"
         tools:layout="@layout/fragment_introduce" />
+    <dialog
+        android:id="@+id/addNewReceiptBottomSheetFragment"
+        tools:layout="@layout/fragment_add_new_receipt_bottom_sheet"
+        android:name="nam.zuchu.asm.fragments.crud.AddNewReceiptBottomSheetFM"
+        android:label="AddNewReceiptBottomSheetFragment" >
+        <action
+            android:id="@+id/action_addNewReceiptBottomSheetFragment_to_drawerReceipt"
+            app:destination="@id/drawerReceipt" />
+    </dialog>
+    <fragment
+        android:id="@+id/listExpendituresFM"
+        tools:layout="@layout/fragment_list_expenditure"
+        android:name="nam.zuchu.asm.fragments.features.expenditures.ListExpendituresFM"
+        android:label="ListExpendituresFM" />
+    <fragment
+        android:id="@+id/detailExpendituresFM"
+        tools:layout="@layout/fragment_detail_expenditures"
+        android:name="nam.zuchu.asm.fragments.features.expenditures.DetailExpendituresFM"
+        android:label="DetailExpendituresFM" />
+    <fragment
+        android:id="@+id/detailReceiptFM"
+        tools:layout="@layout/fragment_detail_receipts"
+        android:name="nam.zuchu.asm.fragments.features.receipts.DetailReceiptFM"
+        android:label="DetailReceiptFM" />
+    <dialog
+        android:id="@+id/addNewExpenditureBottomSheetFragment"
+        tools:layout="@layout/fragment_add_new_expenditure_bottom_sheet"
+        android:name="nam.zuchu.asm.fragments.crud.AddNewExpenditureBottomSheetFM"
+        android:label="AddNewExpenditureBottomSheetFragment" >
+        <action
+            android:id="@+id/action_addNewExpenditureBottomSheetFragment_to_drawerExpenditure"
+            app:destination="@id/drawerExpenditure" />
+    </dialog>
+    <dialog
+        android:id="@+id/addNewDetailExpenditureBSFM"
+        tools:layout="@layout/fragment_add_new_detail_expenditure_bsheet"
+        android:name="nam.zuchu.asm.fragments.crud.AddNewDetailExpenditureBSFM"
+        android:label="AddNewDetailExpenditureBSFM" >
+        <action
+            android:id="@+id/action_addNewDetailExpenditureBSFM_to_drawerExpenditure"
+            app:destination="@id/drawerExpenditure" />
+    </dialog>
 </navigation>

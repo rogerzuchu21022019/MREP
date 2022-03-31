@@ -25,19 +25,8 @@
             android:id="@+id/vpReceipt"
             android:layout_width="match_parent"
             android:layout_height="0dp"/>
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lavAdd"
-            android:onClick="@{()->onClick}"
-            app:lottie_rawRes="@raw/add1"
-            app:lottie_loop="true"
-            app:lottie_autoPlay="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="@dimen/_16sdp"
-            android:layout_marginBottom="?attr/actionBarSize"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            tools:ignore="MissingConstraints" />
+
+
 
 
 

@@ -1,12 +1,10 @@
-package nam.zuchu.asm.fragments.intro
+package nam.zuchu.asm.fragments.ui.intro
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import nam.zuchu.asm.R
 import nam.zuchu.asm.databinding.FragmentIntro1FmBinding
 
 class Intro1FM : Fragment() {

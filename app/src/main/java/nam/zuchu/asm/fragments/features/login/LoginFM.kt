@@ -1,4 +1,4 @@
-package nam.zuchu.asm.fragments.login
+package nam.zuchu.asm.fragments.features.login
 
 import android.app.Activity
 import android.content.Intent

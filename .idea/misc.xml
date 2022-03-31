@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.23229166666666667" />
         <entry key="app/src/main/res/drawable/avatar.xml" value="0.22" />
         <entry key="app/src/main/res/drawable/calendar.xml" value="0.2535" />
         <entry key="app/src/main/res/drawable/ci3_custom.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable/custom_acb_date.xml" value="0.2535" />
+        <entry key="app/src/main/res/drawable/custom_bottom_add.xml" value="0.303" />
         <entry key="app/src/main/res/drawable/custom_bottom_sheet.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/custom_circle_indicator.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable/home.xml" value="0.1745" />
@@ -17,12 +19,16 @@
         <entry key="app/src/main/res/layout/contain_main_layout.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/contain_sub_layout.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/drawerlayout_activity.xml" value="0.20969202898550723" />
+        <entry key="app/src/main/res/layout/fragment_add_new_detail_expenditure_bsheet.xml" value="0.2776268115942029" />
+        <entry key="app/src/main/res/layout/fragment_add_new_detail_receipt_bsheet.xml" value="0.2776268115942029" />
+        <entry key="app/src/main/res/layout/fragment_add_new_expenditure_bottom_sheet.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_add_new_receipt_bottom_sheet.xml" value="0.259963768115942" />
         <entry key="app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/fragment_call_audio.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/fragment_call_video.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_container_fm.xml" value="0.2776268115942029" />
+        <entry key="app/src/main/res/layout/fragment_detail_expenditures.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_expenditure.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_forget_password.xml" value="0.22395833333333334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2776268115942029" />
@@ -31,6 +37,8 @@
         <entry key="app/src/main/res/layout/fragment_intro2_fm.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_intro3_fm.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_introduce.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_list_expenditure.xml" value="0.2776268115942029" />
+        <entry key="app/src/main/res/layout/fragment_list_receipt.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.22395833333333334" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_receipt.xml" value="0.2776268115942029" />
@@ -39,6 +47,7 @@
         <entry key="app/src/main/res/layout/fragment_statistic.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_types_of_name.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/header_layout_1.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/item_rv_detail_expenditure.xml" value="0.253125" />
         <entry key="app/src/main/res/layout/item_rv_post.xml" value="0.31989708404802747" />
         <entry key="app/src/main/res/layout/item_rv_types_of_name.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/item_rv_users.xml" value="0.1890625" />

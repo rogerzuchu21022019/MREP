@@ -5,6 +5,9 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import nam.zuchu.asm.fragments.features.*
+import nam.zuchu.asm.fragments.features.expenditures.DetailExpendituresFM
+import nam.zuchu.asm.fragments.features.expenditures.ListExpendituresFM
+import nam.zuchu.asm.fragments.features.receipts.DetailReceiptFM
 
 class TabExpenditureViewpagerAdapter(fragmentManager: FragmentManager, lifecycler: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycler) {
@@ -14,16 +17,9 @@ class TabExpenditureViewpagerAdapter(fragmentManager: FragmentManager, lifecycle
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-
-            1 -> {
-                TypesOfNameFM()
-            }
-            2 -> {
-                ExpenditureFM()
-            }
-            else -> {
-                return TypesOfNameFM()
-            }
+            0 -> DetailExpendituresFM()
+            1 -> ListExpendituresFM()
+            else -> DetailExpendituresFM()
         }
 
     }

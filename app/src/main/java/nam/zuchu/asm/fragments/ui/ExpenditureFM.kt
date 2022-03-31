@@ -1,4 +1,4 @@
-package nam.zuchu.asm.fragments.features
+package nam.zuchu.asm.fragments.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -30,9 +30,9 @@ class ExpenditureFM : Fragment() {
         ) { tab, position ->
 
             if (position == 0) {
-                tab.text = "Kind of Expenditure"
+                tab.text = "Detail of Expenditure"
             } else if (position == 1) {
-                tab.text = "Expenditure"
+                tab.text = "Expenditures"
             }
         }.attach()
     }

@@ -1,4 +1,4 @@
-package nam.zuchu.asm.fragments.features
+package nam.zuchu.asm.fragments.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

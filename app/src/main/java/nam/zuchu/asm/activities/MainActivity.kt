@@ -38,20 +38,7 @@ class MainActivity : AppCompatActivity() {
         navController = Navigation.findNavController(this@MainActivity, R.id.fmNavGraph1)
     }
 
-    private fun createNewType() {
-        GlobalScope.launch(Dispatchers.IO) {
-            val response = apiService.createNewType(
-                status = "Thu",
-                typeOfName = "Xuong Q9"
-            )
-            if (response.isSuccessful) {
-                Log.d("CREATE OK", response.body()!!.toString())
-            }
-        }
-    }
 
-//    private fun CreateNewUsersWithTypes() {
-//    }
 
 
     private fun getAllUsersWithTypesFromAPI() {

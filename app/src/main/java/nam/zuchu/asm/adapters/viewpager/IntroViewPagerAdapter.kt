@@ -2,7 +2,7 @@ package nam.zuchu.asm.adapters.viewpager
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import nam.zuchu.asm.fragments.intro.Intro1FM
+import nam.zuchu.asm.fragments.ui.intro.Intro1FM
 import team.hacker.seace.fragments.intro.Intro2FM
 import team.hacker.seace.fragments.intro.Intro3FM
 

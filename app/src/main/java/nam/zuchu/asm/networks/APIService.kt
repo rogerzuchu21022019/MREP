@@ -4,23 +4,25 @@ import nam.zuchu.asm.models.types.TypesItem
 import nam.zuchu.asm.models.users.UsersItem
 import nam.zuchu.asm.models.userswithtypes.UsersWithTypesItem
 import retrofit2.Response
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface APIService {
 
-    // GET
-    // URL: https://asm.congtydacap.club/api/users
-    // URL: https://asm.congtydacap.club/api/types
-    // URL: https://asm.congtydacap.club/api/users-with-types
+    // TODO: GET
+    // TODO: URL: https://asm.congtydacap.club/api/users
+    // TODO: URL: https://asm.congtydacap.club/api/types
+    // TODO: URL: https://asm.congtydacap.club/api/users-with-types
+    // TODO: GET BY ID
+    // TODO: URL: https://asm.congtydacap.club/api/users/id
+    // TODO: URL: https://asm.congtydacap.club/api/types/id
+    // TODO: POST
+    // TODO: URL: https://asm.congtydacap.club/api/users
+    // TODO: URL: https://asm.congtydacap.club/api/types
+    // TODO: URL: https://asm.congtydacap.club/api/users-with-types
+    // TODO: URL: https://asm.congtydacap.club/api/users
 
-    // POST
-    // URL: https://asm.congtydacap.club/api/users
-    // URL: https://asm.congtydacap.club/api/types
-    // URL: https://asm.congtydacap.club/api/users-with-types
-    // URL: https://asm.congtydacap.club/api/users
+    // TODO: Update
+    // TODO: URL: https://asm.congtydacap.club/api/update-type
     @GET("api/users")
     suspend fun getAllUsers(): Response<List<UsersItem>>
 
@@ -31,7 +33,11 @@ interface APIService {
     suspend fun getAllUsersWithTypes(): Response<List<UsersWithTypesItem>>
 
     @GET("api/users/{username}")
-    suspend fun getUserByUserName(): Response<List<UsersItem>>
+    suspend fun getUserByUserName(): Response<UsersItem>
+    @GET("api/types")
+    suspend fun getTypeByStatus(
+        @Query("status" )status: String
+    ):Response<List<TypesItem>>
 
     @FormUrlEncoded
     @POST("api/users")
@@ -50,7 +56,7 @@ interface APIService {
     suspend fun createNewType(
         @Field("status") status: String,
         @Field("typeOfName") typeOfName: String
-    ): Response<List<TypesItem>>
+    ): TypesItem
 
     @FormUrlEncoded
     @POST("api/users-with-types")
@@ -60,5 +66,5 @@ interface APIService {
         @Field("description") description: String,
         @Field("totalMoney") totalMoney: Double,
         @Field("userName") userName: String,
-    ): Response<List<UsersWithTypesItem>>
+    ):UsersWithTypesItem
 }
