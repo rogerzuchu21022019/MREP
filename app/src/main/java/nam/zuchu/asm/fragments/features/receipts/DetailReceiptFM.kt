@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
+import nam.zuchu.asm.R
 import nam.zuchu.asm.adapters.types.TypesOfNameAdapter
 import nam.zuchu.asm.databinding.FragmentDetailReceiptsBinding
 
@@ -19,7 +21,14 @@ class DetailReceiptFM : Fragment() {
     ): View? {
         fmDetailReceiptBinding = FragmentDetailReceiptsBinding.inflate(layoutInflater)
 //        initRecyclerView()
+        initClick()
         return fmDetailReceiptBinding.root
+    }
+
+    private fun initClick() {
+        fmDetailReceiptBinding.lavAddReceipt.setOnClickListener{
+            findNavController().navigate(R.id.action_drawerReceipt_to_addNewDetailReceiptBSFM)
+        }
     }
 
     private fun initRecyclerView() {

@@ -40,7 +40,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tilDate"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
 
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"
@@ -67,8 +67,31 @@
                 android:textColorHint="@color/red"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/acbCancle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:background="@drawable/custom_circle_indicator"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintEnd_toStartOf="@id/acbOK"
+            app:layout_constraintStart_toStartOf="@id/tilNameOfReceipt"
+            app:layout_constraintTop_toBottomOf="@id/tilStatus"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/acbOK"
+            android:background="@drawable/custom_circle_indicator"
+            app:layout_constraintStart_toEndOf="@id/acbCancle"
+            app:layout_constraintTop_toTopOf="@id/acbCancle"
+            android:text="OK"
+            app:layout_constraintEnd_toEndOf="@id/tilStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilDate"
+            android:id="@+id/tilStatus"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,7 +107,7 @@
             app:endIconMode="clear_text"
             app:helperText="@string/require"
             app:helperTextEnabled="true"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/tilNameOfReceipt"
 
             android:orientation="vertical"
             app:helperTextTextColor="@color/red"
@@ -99,30 +122,6 @@
                 android:textColorHint="@color/red"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/acbCancle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancel"
-            android:background="@drawable/custom_circle_indicator"
-            app:layout_constraintHorizontal_bias="0.2"
-            app:layout_constraintEnd_toStartOf="@id/acbOK"
-            app:layout_constraintStart_toStartOf="@id/tilNameOfReceipt"
-            app:layout_constraintTop_toBottomOf="@id/tilNameOfReceipt"
-            tools:ignore="MissingConstraints" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/acbOK"
-            android:background="@drawable/custom_circle_indicator"
-
-            app:layout_constraintStart_toEndOf="@id/acbCancle"
-            app:layout_constraintTop_toTopOf="@id/acbCancle"
-            android:text="OK"
-            app:layout_constraintEnd_toEndOf="@id/tilDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

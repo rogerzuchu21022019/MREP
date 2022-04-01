@@ -1,12 +1,10 @@
 package nam.zuchu.asm.fragments.crud
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
@@ -45,14 +43,16 @@ class AddNewReceiptBottomSheetFM : BottomSheetDialogFragment(), View.OnClickList
         val id = view?.id
         when (id) {
             R.id.acbOK -> {
-                val status = fmAddNewReceipt.tieNameOfReceipt.text.toString().trim()
+                // TODO: Push New Type Model 
                 val typesOfName = fmAddNewReceipt.tieStatus.text.toString().trim()
-                val type = TypesItem(0, status = status, typeOfName = typesOfName)
+                val status = fmAddNewReceipt.tieNameOfReceipt.text.toString().trim()
+//                val type = TypesItem(0, status = status, typeOfName = typesOfName)
                 GlobalScope.launch(Dispatchers.IO){
-                    apiService.createNewType(status = status, typeOfName = typesOfName)
+                    apiService.createNewType(  typesOfName,status)
                 }
-                var action = AddNewReceiptBottomSheetFMDirections.actionAddNewReceiptBottomSheetFragmentToDrawerReceipt(type)
-                findNavController().navigate(action)
+//                var action = AddNewReceiptBottomSheetFMDirections.actionAddNewReceiptBottomSheetFragmentToDrawerReceipt(type)
+//                findNavController().navigate(action)
+                findNavController().navigate(R.id.action_addNewReceiptBottomSheetFragment_to_drawerReceipt)
                 Toast.makeText(
                     requireContext(),
                     "Go to destination successfully",

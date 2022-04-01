@@ -8,48 +8,47 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
+import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import nam.zuchu.asm.R
-import nam.zuchu.asm.databinding.FragmentAddNewDetailExpenditureBsheetBinding
+import nam.zuchu.asm.databinding.FragmentAddNewDetailReceiptBsheetBinding
 import nam.zuchu.asm.networks.API
 import nam.zuchu.asm.networks.APIService
 import java.util.*
 
 @DelicateCoroutinesApi
-class AddNewDetailExpenditureBSFM : BottomSheetDialogFragment(), View.OnClickListener {
+class AddNewDetailReceiptBSFM : BottomSheetDialogFragment(), View.OnClickListener {
 
-    lateinit var fmAddNewExpenditureBinding: FragmentAddNewDetailExpenditureBsheetBinding
+    lateinit var fmAddNewReceiptBinding: FragmentAddNewDetailReceiptBsheetBinding
     var calendar: Calendar = Calendar.getInstance()
-    lateinit var snackbar: Snackbar
-
-    var idType:Int? = null
-
+    var idType:Int?=null
     var apiService: APIService = API.getAPI().create(APIService::class.java)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        fmAddNewExpenditureBinding =
-            FragmentAddNewDetailExpenditureBsheetBinding.inflate(layoutInflater)
-        getDataFromAPI()
+
+        fmAddNewReceiptBinding =
+            FragmentAddNewDetailReceiptBsheetBinding.inflate(layoutInflater)
         initClick()
-        return fmAddNewExpenditureBinding.root
+        getDataFromAPI()
+
+        return fmAddNewReceiptBinding.root
     }
 
     private fun getDataFromAPI() {
         GlobalScope.launch(Dispatchers.Main) {
             val responseUsers = apiService.getAllUsers()
-            val responseTypes = apiService.getTypeByStatus("Chi")
+            val responseTypes = apiService.getTypeByStatus("Thu")
             if (responseUsers.isSuccessful && responseTypes.isSuccessful) {
+                // TODO: Get Api UserName Of user
                 for (data in 0 until responseUsers.body()!!.size) {
                     val userArr = arrayOfNulls<String>(responseUsers.body()!!.size)
                     for (data1 in 0 until responseUsers.body()!!.size) {
@@ -59,29 +58,28 @@ class AddNewDetailExpenditureBSFM : BottomSheetDialogFragment(), View.OnClickLis
                             android.R.layout.simple_expandable_list_item_1,
                             userArr
                         )
-                        fmAddNewExpenditureBinding.autoCompleteUserName.setAdapter(arrayAdapterUserName)
+                        fmAddNewReceiptBinding.autoCompleteUserName.setAdapter(arrayAdapterUserName)
                     }
                 }
+
+                // TODO: Get Api Status Of Receipt
                 for (data in 0 until responseTypes.body()!!.size) {
                     val typeArr = arrayOfNulls<String>(responseTypes.body()!!.size)
                     for (data1 in 0 until responseTypes.body()!!.size) {
-                        if (responseTypes.body()!![data1].status=="Chi" && (responseTypes.body()!![data1].typeOfName!="") ){
+                        if (responseTypes.body()!![data1].status=="Thu" && (responseTypes.body()!![data1].typeOfName!="")){
                             typeArr[data1] = responseTypes.body()!![data1].typeOfName
-
-                            val arrayAdapterID = ArrayAdapter(
+                            val arrayAdapterType = ArrayAdapter(
                                 requireContext(),
                                 android.R.layout.simple_expandable_list_item_1,
                                 typeArr
                             )
-                            fmAddNewExpenditureBinding.autoCompleteID.setAdapter(arrayAdapterID)
-                                fmAddNewExpenditureBinding.autoCompleteID.onItemClickListener =
-                                AdapterView.OnItemClickListener { _, _, i, _ ->
+                            fmAddNewReceiptBinding.autoCompleteID.setAdapter(arrayAdapterType)
+                            fmAddNewReceiptBinding.autoCompleteID.onItemClickListener =
+                                OnItemClickListener { _, _, i, _ ->
                                     idType = responseTypes.body()!![i].idType
-                                    fmAddNewExpenditureBinding.tvID.text = idType.toString()
+                                    fmAddNewReceiptBinding.tvID.text = idType.toString()
                                 }
-
                         }
-
 
                     }
                 }
@@ -91,45 +89,47 @@ class AddNewDetailExpenditureBSFM : BottomSheetDialogFragment(), View.OnClickLis
     }
 
     private fun initClick() {
-        fmAddNewExpenditureBinding.acbCancleDetail.setOnClickListener(this)
-        fmAddNewExpenditureBinding.acbOkDoneDetail.setOnClickListener(this)
-        fmAddNewExpenditureBinding.acbCalender.setOnClickListener(this)
+        fmAddNewReceiptBinding.acbCancleDetail.setOnClickListener(this)
+        fmAddNewReceiptBinding.acbOkDone.setOnClickListener(this)
+        fmAddNewReceiptBinding.acbCalenderReceipt.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         val id = view?.id
         when (id) {
-            R.id.acbOkDoneDetail -> {
-                val date: String = fmAddNewExpenditureBinding.acbCalender.text.toString().trim()
+            R.id.acbOkDone -> {
+                val date: String = fmAddNewReceiptBinding.acbCalenderReceipt.text.toString().trim()
                 val description: String =
-                    fmAddNewExpenditureBinding.tieDescription.text.toString().trim()
-                val totalMoney: Double = fmAddNewExpenditureBinding.tieTotal.text.toString().toDouble()
-                val idType: Int = fmAddNewExpenditureBinding.tvID.text.toString().toInt()
+                    fmAddNewReceiptBinding.tieDescription.text.toString().trim()
+                val totalMoney: Double = fmAddNewReceiptBinding.tieTotal.text.toString().toDouble()
+                val idType: Int = fmAddNewReceiptBinding.tvID.text.toString().toInt()
                 val userName: String =
-                    fmAddNewExpenditureBinding.autoCompleteUserName.text.toString().trim()
+                    fmAddNewReceiptBinding.autoCompleteUserName.text.toString().trim()
 
-                GlobalScope.launch(Dispatchers.IO){
+                GlobalScope.launch(Dispatchers.IO) {
                     val response = apiService.createNewUsersWithTypes(
-                        date = date,
-                        description = description,
-                        totalMoney = totalMoney,
+                        userName = userName,
                         idType = idType,
-                        userName = userName
+                        description = description,
+                        date = date,
+                        totalMoney = totalMoney,
                     )
                 }
-                findNavController().navigate(R.id.action_addNewDetailExpenditureBSFM_to_drawerExpenditure)
+                findNavController().navigate(R.id.action_addNewDetailReceiptBSFM_to_drawerReceipt)
                 Toast.makeText(
                     requireContext(),
-                    "Go to destination successfully",
+                    "OK",
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            R.id.acbCancleDetail -> Toast.makeText(
-                requireContext(),
-                "Cancle",
-                Toast.LENGTH_SHORT
-            ).show()
-            R.id.acbCalender -> {
+            R.id.acbCancleDetail ->{
+                Toast.makeText(
+                    requireContext(),
+                    "Cancle",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            R.id.acbCalenderReceipt -> {
                 initDataPicker()
             }
         }
@@ -141,9 +141,9 @@ class AddNewDetailExpenditureBSFM : BottomSheetDialogFragment(), View.OnClickLis
         val pickerDialog = DatePickerDialog(
             requireActivity(), style,
             OnDateSetListener { view, year, month, dayOfMonth ->
-                fmAddNewExpenditureBinding.acbCalender.text =
+                fmAddNewReceiptBinding.acbCalenderReceipt.text =
                     "$year-" + (month + 1) + "-$dayOfMonth"
-                if (TextUtils.isEmpty(fmAddNewExpenditureBinding.acbCalender.text)) {
+                if (TextUtils.isEmpty(fmAddNewReceiptBinding.acbCalenderReceipt.text)) {
                     Toast.makeText(
                         requireContext(),
                         "Please pick date and click ok to finish",

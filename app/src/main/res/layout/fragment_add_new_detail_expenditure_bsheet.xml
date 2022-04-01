@@ -9,6 +9,7 @@
         <variable
             name="type"
             type="nam.zuchu.asm.models.types.TypesItem" />
+
         <variable
             name="user"
             type="nam.zuchu.asm.models.users.UsersItem" />
@@ -41,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:text="Add Detail of Expenditures"
+                android:text="@string/add_detail_of_expenditure"
                 android:textSize="@dimen/_20sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +57,7 @@
                 android:layout_marginStart="@dimen/_30sdp"
                 android:layout_marginTop="@dimen/_16sdp"
                 android:layout_marginEnd="@dimen/_30sdp"
-                android:hint="Choose Username"
+                android:hint="@string/choose_username"
                 app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_20sdp"
                 app:boxCornerRadiusTopEnd="@dimen/_20sdp"
@@ -64,6 +65,7 @@
                 app:helperText="Choose"
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/red"
+                app:hintTextColor="@color/primary"
                 app:layout_constraintEnd_toEndOf="@id/tvTitle"
                 app:layout_constraintStart_toStartOf="@id/tvTitle"
                 app:layout_constraintTop_toBottomOf="@id/tvTitle"
@@ -75,19 +77,17 @@
                     android:layout_height="wrap_content"
                     android:fallbackLineSpacing="true"
                     android:paddingStart="@dimen/_10sdp"
-               />
-<!--                android:text="@{user.userName}"-->
+                    tools:ignore="LabelFor,RtlSymmetry,UnusedAttribute" />
+                <!--                android:text="@{user.userName}"-->
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilID"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_30sdp"
-                android:layout_marginEnd="@dimen/_30sdp"
-                android:hint="Choose ID"
+                android:hint="@string/choose_name_of_expenditures"
                 app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_20sdp"
                 app:boxCornerRadiusTopEnd="@dimen/_20sdp"
@@ -95,45 +95,45 @@
                 app:helperText="Choose"
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/red"
-                app:layout_constraintEnd_toEndOf="@id/tvTitle"
-                app:layout_constraintStart_toStartOf="@id/tvTitle"
+                app:hintTextColor="@color/primary"
+                app:layout_constraintEnd_toStartOf="@id/tvID"
+                app:layout_constraintStart_toStartOf="@id/tilAutoUserName"
                 app:layout_constraintTop_toBottomOf="@id/tilAutoUserName"
                 tools:ignore="MissingConstraints">
 
                 <AutoCompleteTextView
                     android:id="@+id/autoCompleteID"
 
-                    android:textColor="@color/primary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fallbackLineSpacing="true"
                     android:paddingStart="@dimen/_10sdp"
-                     />
-<!--                android:text="@{type.idType}"-->
+                    android:textColor="@color/primary"
+                    tools:ignore="LabelFor,RtlSymmetry,UnusedAttribute" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
-
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/acbCalender"
-                    android:textColor="@color/white"
-                    android:text="@string/calender"
-                    app:layout_constraintEnd_toEndOf="@id/tilID"
-                    app:layout_constraintStart_toStartOf="@id/tilID"
-                    app:layout_constraintTop_toBottomOf="@id/tilID"
-                    android:background="@drawable/custom_acb_date"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    tools:ignore="MissingConstraints" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/acbCalender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom"
+                android:text="@string/calender"
+                android:textColor="@color/primary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/tilAutoUserName"
+                app:layout_constraintStart_toStartOf="@id/tilAutoUserName"
+                app:layout_constraintTop_toBottomOf="@id/tilID"
+                tools:ignore="MissingConstraints" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilNameOfReceipt"
+                android:id="@+id/tilDescription"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
+                android:hint="@string/description"
                 android:orientation="vertical"
                 app:boxBackgroundMode="outline"
                 app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
@@ -146,19 +146,31 @@
                 app:helperText="@string/require"
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/red"
+                app:hintTextColor="@color/primary"
                 app:layout_constraintTop_toBottomOf="@id/acbCalender"
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tieNameOfReceipt"
+                    android:id="@+id/tieDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Description"
                     android:textColor="@color/primary"
                     android:textColorHint="@color/red"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:id="@+id/tvID"
+                android:background="@drawable/custom"
+                android:gravity="center"
+                android:textSize="@dimen/_20sdp"
+                app:layout_constraintVertical_bias="0.2"
+                app:layout_constraintTop_toTopOf="@id/tilID"
+                app:layout_constraintEnd_toEndOf="@id/tilAutoUserName"
+                android:layout_width="@dimen/_40sdp"
+                app:layout_constraintBottom_toBottomOf="@id/tilID"
+                android:layout_height="@dimen/_40sdp"
+                tools:ignore="MissingConstraints" />
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilTotal"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -166,6 +178,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
+                android:hint="@string/press_total_money"
                 android:orientation="vertical"
                 app:boxBackgroundMode="outline"
                 app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
@@ -178,14 +191,14 @@
                 app:helperText="@string/require"
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/red"
-                app:layout_constraintTop_toBottomOf="@id/tilNameOfReceipt"
+                app:hintTextColor="@color/primary"
+                app:layout_constraintTop_toBottomOf="@id/tilDescription"
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tieTotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Press Total Money"
                     android:textColor="@color/primary"
                     android:textColorHint="@color/red"
                     android:textSize="16sp" />
@@ -195,22 +208,25 @@
                 android:id="@+id/acbCancleDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cancel"
-                app:layout_constraintEnd_toStartOf="@id/acbOkDetail"
-                app:layout_constraintHorizontal_bias="0.2"
-                app:layout_constraintStart_toStartOf="@id/tilNameOfReceipt"
+                android:text="@string/cancel"
+                app:layout_constraintEnd_toStartOf="@id/acbOkDoneDetail"
+                app:layout_constraintHorizontal_bias="0.3"
+                app:layout_constraintStart_toStartOf="@id/tilDescription"
                 app:layout_constraintTop_toBottomOf="@id/tilTotal"
                 tools:ignore="MissingConstraints" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/acbOkDetail"
+                android:id="@+id/acbOkDoneDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="OK"
+                android:text="@string/ok"
                 app:layout_constraintEnd_toEndOf="@id/tilID"
                 app:layout_constraintStart_toEndOf="@id/acbCancleDetail"
                 app:layout_constraintTop_toTopOf="@id/acbCancleDetail"
                 tools:ignore="MissingConstraints" />
+
+
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

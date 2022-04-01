@@ -52,6 +52,7 @@ class ReceiptFM : Fragment() {
                 tab.text = "Receipts"
             }
         }.attach()
+
     }
 
 

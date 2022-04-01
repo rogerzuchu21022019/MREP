@@ -34,6 +34,9 @@
         <argument
             android:name="type"
             app:argType="nam.zuchu.asm.models.types.TypesItem" />
+        <action
+            android:id="@+id/action_drawerReceipt_to_addNewDetailReceiptBSFM"
+            app:destination="@id/addNewDetailReceiptBSFM" />
     </fragment>
     <dialog
         android:id="@+id/drawerExit"
@@ -41,7 +44,7 @@
         android:label="ReceiptFM"
         tools:layout="@layout/fragment_bottom_sheet" >
         <action
-            android:id="@+id/action_drawerExit_to_drawerHome2"
+            android:id="@+id/action_drawerExit_to_drawerHome"
             app:destination="@id/drawerHome" />
     </dialog>
     <fragment
@@ -95,5 +98,14 @@
         <action
             android:id="@+id/action_addNewDetailExpenditureBSFM_to_drawerExpenditure"
             app:destination="@id/drawerExpenditure" />
+    </dialog>
+    <dialog
+        android:id="@+id/addNewDetailReceiptBSFM"
+        tools:layout="@layout/fragment_add_new_detail_receipt_bsheet"
+        android:name="nam.zuchu.asm.fragments.crud.AddNewDetailReceiptBSFM"
+        android:label="AddNewDetailReceiptBSFM" >
+        <action
+            android:id="@+id/action_addNewDetailReceiptBSFM_to_drawerReceipt"
+            app:destination="@id/drawerReceipt" />
     </dialog>
 </navigation>

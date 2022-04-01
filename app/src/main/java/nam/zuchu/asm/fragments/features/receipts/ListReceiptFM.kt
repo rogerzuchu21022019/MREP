@@ -21,6 +21,7 @@ import kotlinx.coroutines.launch
 import nam.zuchu.asm.R
 import nam.zuchu.asm.adapters.types.TypesOfNameAdapter
 import nam.zuchu.asm.databinding.FragmentListReceiptBinding
+import nam.zuchu.asm.fragments.ui.ReceiptFM
 import nam.zuchu.asm.networks.API
 import nam.zuchu.asm.networks.APIService
 
@@ -57,19 +58,15 @@ class ListReceiptFM : Fragment(),TypesOfNameAdapter.OnClickItemInRecyclerView {
         fmReceiptBinding.rvListReceipt.setHasFixedSize(true)
         fmReceiptBinding.rvListReceipt.addItemDecoration(DividerItemDecoration(requireContext(),DividerItemDecoration.VERTICAL))
     }
-
-
     fun initClick() {
         fmReceiptBinding.lavAddReceipt.setOnClickListener {
             Toast.makeText(requireContext(), "Receipt add OK", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_drawerReceipt_to_addNewReceiptBottomSheetFragment2)
-
         }
     }
 
     override fun onItemClick(position: Int) {
-        snackbar = Snackbar.make(requireView(),"$position",3000)
-        snackbar.show()
+
     }
 
 

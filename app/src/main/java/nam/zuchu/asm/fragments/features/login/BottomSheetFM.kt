@@ -47,7 +47,7 @@ class BottomSheetFM : BottomSheetDialogFragment(), View.OnClickListener {
             FirebaseAuth.getInstance().signOut()
         }
         if (id == R.id.acbSignOutNo) {
-            val action: NavDirections = BottomSheetFMDirections.actionDrawerExitToDrawerHome2()
+            val action: NavDirections = BottomSheetFMDirections.actionDrawerExitToDrawerHome()
             navController!!.navigate(action)
         }
     }

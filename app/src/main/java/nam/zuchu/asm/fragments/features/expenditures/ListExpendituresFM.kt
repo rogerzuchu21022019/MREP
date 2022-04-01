@@ -6,13 +6,24 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import nam.zuchu.asm.R
+import nam.zuchu.asm.adapters.types.TypesOfNameAdapter
 import nam.zuchu.asm.databinding.FragmentExpenditureBinding
 import nam.zuchu.asm.databinding.FragmentListExpenditureBinding
 import nam.zuchu.asm.databinding.FragmentListReceiptBinding
+import nam.zuchu.asm.networks.API
+import nam.zuchu.asm.networks.APIService
 
-class ListExpendituresFM : Fragment(),View.OnClickListener{
+@DelicateCoroutinesApi
+class ListExpendituresFM : Fragment(),TypesOfNameAdapter.OnClickItemInRecyclerView{
     lateinit var fmExpenditureBinding: FragmentListExpenditureBinding
+    lateinit var adapter:TypesOfNameAdapter
+    var apiService:APIService = API.getAPI().create(APIService::class.java)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,9 +31,31 @@ class ListExpendituresFM : Fragment(),View.OnClickListener{
         savedInstanceState: Bundle?
     ): View? {
         fmExpenditureBinding = FragmentListExpenditureBinding.inflate(layoutInflater)
+        initRecyclerView()
+        getDataFromAPI()
         initClick()
+
         return fmExpenditureBinding.root
     }
+
+    private fun getDataFromAPI() {
+        GlobalScope.launch(Dispatchers.Main){
+            val response = apiService.getTypeByStatus("Chi")
+            if (response.isSuccessful){
+                adapter.setDataForAdapter(response.body()!!)
+            }
+        }
+    }
+
+    private fun initRecyclerView() {
+        adapter = TypesOfNameAdapter()
+        adapter.setOnClickItem(this)
+        fmExpenditureBinding.rvListExpenditure.setHasFixedSize(true)
+        fmExpenditureBinding.rvListExpenditure.adapter = adapter
+        fmExpenditureBinding.rvListExpenditure.addItemDecoration(DividerItemDecoration(requireContext(),DividerItemDecoration.VERTICAL))
+
+    }
+
 
     private fun initClick() {
         fmExpenditureBinding.lavAddExpenditure.setOnClickListener {
@@ -31,8 +64,7 @@ class ListExpendituresFM : Fragment(),View.OnClickListener{
         }
     }
 
-    override fun onClick(view: View?) {
-        TODO("Not yet implemented")
+    override fun onItemClick(position: Int) {
     }
 
 

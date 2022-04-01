@@ -50,7 +50,7 @@ class SignUpFM : Fragment() {
                 avartar = ""
             )
             GlobalScope.launch(Dispatchers.IO) {
-                val response = apiService!!.createNewUser(
+                val response = apiService.createNewUser(
                     user.userName,
                     user.age,
                     user.email,

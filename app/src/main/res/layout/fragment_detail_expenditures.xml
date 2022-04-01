@@ -16,13 +16,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rvTypesOfName"-->
-<!--            tools:listitem="@layout/item_rv_types_of_name"-->
-<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--            android:orientation="vertical"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"/>-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTypesOfName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="?attr/actionBarSize"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="0dp"
+            tools:listitem="@layout/item_rv_detail_expenditure" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lavAddExpenditure"

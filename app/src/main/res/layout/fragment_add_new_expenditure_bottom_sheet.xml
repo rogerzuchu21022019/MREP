@@ -37,7 +37,7 @@
                 tools:ignore="MissingConstraints" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilDate"
+                android:id="@+id/tilNameOfReceipt"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,17 +59,17 @@
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tieStatus"
+                    android:id="@+id/tieNameOfReceipt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Press status"
-
+                    android:hint="Press name of Expenditure"
                     android:textColor="@color/red"
                     android:textColorHint="@color/red"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilNameOfReceipt"
+                android:id="@+id/tilStatus"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,31 +85,32 @@
                 app:endIconMode="clear_text"
                 app:helperText="@string/require"
                 app:helperTextEnabled="true"
-                app:layout_constraintTop_toBottomOf="@id/tilDate"
+                app:layout_constraintTop_toBottomOf="@id/tilNameOfReceipt"
                 android:orientation="vertical"
                 app:helperTextTextColor="@color/red"
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tieNameOfReceipt"
+                    android:id="@+id/tieStatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Press name of Expenditure"
+                    android:hint="@string/press_status"
+
                     android:textColor="@color/red"
                     android:textColorHint="@color/red"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/acbCancleExpenditure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cancel"
-                android:background="@drawable/custom_bottom_add"
+                android:text="@string/cancel"
                 app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintEnd_toStartOf="@id/acbOkExpenditure"
-                app:layout_constraintStart_toStartOf="@id/tilNameOfReceipt"
-                app:layout_constraintTop_toBottomOf="@id/tilNameOfReceipt"
+                app:layout_constraintStart_toStartOf="@id/tilStatus"
+                app:layout_constraintTop_toBottomOf="@id/tilStatus"
                 tools:ignore="MissingConstraints" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -117,7 +118,7 @@
                 app:layout_constraintStart_toEndOf="@id/acbCancleExpenditure"
                 app:layout_constraintTop_toTopOf="@id/acbCancleExpenditure"
                 android:text="OK"
-                app:layout_constraintEnd_toEndOf="@id/tilDate"
+                app:layout_constraintEnd_toEndOf="@id/tilStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraints" />

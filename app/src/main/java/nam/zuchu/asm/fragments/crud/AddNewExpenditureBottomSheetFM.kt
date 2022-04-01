@@ -1,7 +1,6 @@
 package nam.zuchu.asm.fragments.crud
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,11 +41,11 @@ class AddNewExpenditureBottomSheetFM : BottomSheetDialogFragment(), View.OnClick
     override fun onClick(view: View?) {
         val id = view?.id
         when (id) {
-            R.id.acbOK -> {
-                val status = fmAddNewExpenditureBinding.tieNameOfReceipt.text.toString().trim()
+            R.id.acbOkExpenditure -> {
                 val typesOfName = fmAddNewExpenditureBinding.tieStatus.text.toString().trim()
+                val status = fmAddNewExpenditureBinding.tieNameOfReceipt.text.toString().trim()
                 GlobalScope.launch(Dispatchers.IO){
-                    apiService.createNewType(status = status, typeOfName = typesOfName)
+                    apiService.createNewType( typeOfName = typesOfName,status = status)
                 }
                 findNavController().navigate(R.id.action_addNewExpenditureBottomSheetFragment_to_drawerExpenditure)
                 Toast.makeText(
@@ -55,7 +54,7 @@ class AddNewExpenditureBottomSheetFM : BottomSheetDialogFragment(), View.OnClick
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            R.id.acbCancle -> Toast.makeText(requireContext(), "Cancle", Toast.LENGTH_SHORT).show()
+            R.id.acbCancleExpenditure -> Toast.makeText(requireContext(), "Cancle", Toast.LENGTH_SHORT).show()
         }
     }
 

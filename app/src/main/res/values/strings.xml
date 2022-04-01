@@ -8,4 +8,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Intro">Seace language opened up the world of travel and communication with</string>
     <string name="calender">Calender</string>
+    <string name="choose_id">Choose ID</string>
+    <string name="add_detail_of_receipts">Add Detail of Receipts</string>
+    <string name="choose_username">Choose Username</string>
+    <string name="description">Description</string>
+    <string name="press_total_money">Press Total Money</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="press_status">Press status</string>
+    <string name="choose_name_of_expenditures">Choose Name of Expenditures</string>
+    <string name="choose_name_of_receipt">Choose Name of Receipt</string>
+    <string name="add_detail_of_expenditure">Add Detail of Expenditure</string>
 </resources>

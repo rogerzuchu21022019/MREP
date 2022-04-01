@@ -13,9 +13,11 @@ interface APIService {
     // TODO: URL: https://asm.congtydacap.club/api/types
     // TODO: URL: https://asm.congtydacap.club/api/users-with-types
     // TODO: GET BY ID
+
     // TODO: URL: https://asm.congtydacap.club/api/users/id
     // TODO: URL: https://asm.congtydacap.club/api/types/id
     // TODO: POST
+
     // TODO: URL: https://asm.congtydacap.club/api/users
     // TODO: URL: https://asm.congtydacap.club/api/types
     // TODO: URL: https://asm.congtydacap.club/api/users-with-types
@@ -32,12 +34,16 @@ interface APIService {
     @GET("api/users-with-types")
     suspend fun getAllUsersWithTypes(): Response<List<UsersWithTypesItem>>
 
-    @GET("api/users/{username}")
-    suspend fun getUserByUserName(): Response<UsersItem>
+    @GET("api/users")
+    suspend fun getUserByUserName(
+        @Query("username") userName: String
+    ): Response<UsersItem>
+
     @GET("api/types")
     suspend fun getTypeByStatus(
-        @Query("status" )status: String
-    ):Response<List<TypesItem>>
+        @Query("status") status: String
+    ): Response<List<TypesItem>>
+
 
     @FormUrlEncoded
     @POST("api/users")
@@ -49,14 +55,14 @@ interface APIService {
         @Field("password") password: String,
         @Field("phone") phone: String,
         @Field("fullName") fullName: String,
-    ): UsersItem
+    ): Response<UsersItem>
 
     @FormUrlEncoded
     @POST("api/types")
     suspend fun createNewType(
-        @Field("status") status: String,
-        @Field("typeOfName") typeOfName: String
-    ): TypesItem
+        @Field("typeOfName") typeOfName: String,
+        @Field("status") status: String
+    ): Response<TypesItem>
 
     @FormUrlEncoded
     @POST("api/users-with-types")
@@ -66,5 +72,5 @@ interface APIService {
         @Field("description") description: String,
         @Field("totalMoney") totalMoney: Double,
         @Field("userName") userName: String,
-    ):UsersWithTypesItem
+    ): Response<UsersWithTypesItem>
 }

@@ -16,6 +16,7 @@ import nam.zuchu.asm.networks.API
 import nam.zuchu.asm.networks.APIService
 
 
+@DelicateCoroutinesApi
 class MainActivity : AppCompatActivity() {
     private var activityMainBinding: ActivityMainBinding? = null
     private var adapter: UserInformationsAdapter? = null

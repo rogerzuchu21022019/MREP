@@ -5,23 +5,33 @@
 
     <data>
 
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:text="Detail of Receipts"
-            android:gravity="center"
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTypesOfName"
+            tools:listitem="@layout/item_rv_detail_receipt"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rvTypesOfName"-->
-<!--            tools:listitem="@layout/item_rv_types_of_name"-->
-<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--            android:orientation="vertical"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"/>-->
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lavAddReceipt"
+            app:lottie_rawRes="@raw/add1"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="?attr/actionBarSize"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
