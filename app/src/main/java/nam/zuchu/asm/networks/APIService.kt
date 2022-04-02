@@ -1,6 +1,7 @@
 package nam.zuchu.asm.networks
 
 import nam.zuchu.asm.models.types.TypesItem
+import nam.zuchu.asm.models.users.Users
 import nam.zuchu.asm.models.users.UsersItem
 import nam.zuchu.asm.models.userswithtypes.UsersWithTypesItem
 import retrofit2.Response
@@ -34,15 +35,17 @@ interface APIService {
     @GET("api/users-with-types")
     suspend fun getAllUsersWithTypes(): Response<List<UsersWithTypesItem>>
 
-    @GET("api/users")
-    suspend fun getUserByUserName(
-        @Query("username") userName: String
-    ): Response<UsersItem>
+
 
     @GET("api/types")
     suspend fun getTypeByStatus(
         @Query("status") status: String
     ): Response<List<TypesItem>>
+
+    @GET("api/users")
+    suspend fun getUsers(
+        @Query("username") username: String
+    ) :Response<UsersItem>
 
 
     @FormUrlEncoded
@@ -60,8 +63,8 @@ interface APIService {
     @FormUrlEncoded
     @POST("api/types")
     suspend fun createNewType(
-        @Field("typeOfName") typeOfName: String,
-        @Field("status") status: String
+        @Field("status") status: String,
+        @Field("typeOfName") typeOfName: String
     ): Response<TypesItem>
 
     @FormUrlEncoded

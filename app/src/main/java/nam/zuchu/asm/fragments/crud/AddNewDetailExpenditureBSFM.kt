@@ -31,7 +31,7 @@ class AddNewDetailExpenditureBSFM : BottomSheetDialogFragment(), View.OnClickLis
     var calendar: Calendar = Calendar.getInstance()
     lateinit var snackbar: Snackbar
 
-    var idType:Int? = null
+    var idType: Int? = null
 
     var apiService: APIService = API.getAPI().create(APIService::class.java)
     override fun onCreateView(
@@ -59,13 +59,15 @@ class AddNewDetailExpenditureBSFM : BottomSheetDialogFragment(), View.OnClickLis
                             android.R.layout.simple_expandable_list_item_1,
                             userArr
                         )
-                        fmAddNewExpenditureBinding.autoCompleteUserName.setAdapter(arrayAdapterUserName)
+                        fmAddNewExpenditureBinding.autoCompleteUserName.setAdapter(
+                            arrayAdapterUserName
+                        )
                     }
                 }
                 for (data in 0 until responseTypes.body()!!.size) {
                     val typeArr = arrayOfNulls<String>(responseTypes.body()!!.size)
                     for (data1 in 0 until responseTypes.body()!!.size) {
-                        if (responseTypes.body()!![data1].status=="Chi" && (responseTypes.body()!![data1].typeOfName!="") ){
+                        if (responseTypes.body()!![data1].status == "Chi" && (responseTypes.body()!![data1].typeOfName != "")) {
                             typeArr[data1] = responseTypes.body()!![data1].typeOfName
 
                             val arrayAdapterID = ArrayAdapter(
@@ -74,7 +76,7 @@ class AddNewDetailExpenditureBSFM : BottomSheetDialogFragment(), View.OnClickLis
                                 typeArr
                             )
                             fmAddNewExpenditureBinding.autoCompleteID.setAdapter(arrayAdapterID)
-                                fmAddNewExpenditureBinding.autoCompleteID.onItemClickListener =
+                            fmAddNewExpenditureBinding.autoCompleteID.onItemClickListener =
                                 AdapterView.OnItemClickListener { _, _, i, _ ->
                                     idType = responseTypes.body()!![i].idType
                                     fmAddNewExpenditureBinding.tvID.text = idType.toString()
@@ -103,12 +105,13 @@ class AddNewDetailExpenditureBSFM : BottomSheetDialogFragment(), View.OnClickLis
                 val date: String = fmAddNewExpenditureBinding.acbCalender.text.toString().trim()
                 val description: String =
                     fmAddNewExpenditureBinding.tieDescription.text.toString().trim()
-                val totalMoney: Double = fmAddNewExpenditureBinding.tieTotal.text.toString().toDouble()
+                val totalMoney: Double =
+                    fmAddNewExpenditureBinding.tieTotal.text.toString().toDouble()
                 val idType: Int = fmAddNewExpenditureBinding.tvID.text.toString().toInt()
                 val userName: String =
                     fmAddNewExpenditureBinding.autoCompleteUserName.text.toString().trim()
 
-                GlobalScope.launch(Dispatchers.IO){
+                GlobalScope.launch(Dispatchers.IO) {
                     val response = apiService.createNewUsersWithTypes(
                         date = date,
                         description = description,

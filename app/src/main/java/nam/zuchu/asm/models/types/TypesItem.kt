@@ -12,6 +12,7 @@ data class TypesItem(
     val idType: Int,
     @Expose
     val status: String,
+
     @Expose
-    val typeOfName: String
-):Parcelable
+    val typeOfName: String,
+) : Parcelable

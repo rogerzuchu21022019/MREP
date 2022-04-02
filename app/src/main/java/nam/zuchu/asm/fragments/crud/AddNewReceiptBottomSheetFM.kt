@@ -44,14 +44,14 @@ class AddNewReceiptBottomSheetFM : BottomSheetDialogFragment(), View.OnClickList
         when (id) {
             R.id.acbOK -> {
                 // TODO: Push New Type Model 
-                val typesOfName = fmAddNewReceipt.tieStatus.text.toString().trim()
-                val status = fmAddNewReceipt.tieNameOfReceipt.text.toString().trim()
-//                val type = TypesItem(0, status = status, typeOfName = typesOfName)
+                val status = fmAddNewReceipt.tieStatus.text.toString().trim()
+                val typesOfName = fmAddNewReceipt.tieNameOfReceipt.text.toString().trim()
                 GlobalScope.launch(Dispatchers.IO){
-                    apiService.createNewType(  typesOfName,status)
+                    // TODO: When Add new request,In Layout XML of Fragment, Data will get by STT in Layout XML
+                    // TODO: So I will notice it to get data exactly better
+                    apiService.createNewType(  status = status, typeOfName = typesOfName)// TODO: parameters same in the layout FragmentAddNewReceiptBottomSheetBinding
                 }
-//                var action = AddNewReceiptBottomSheetFMDirections.actionAddNewReceiptBottomSheetFragmentToDrawerReceipt(type)
-//                findNavController().navigate(action)
+
                 findNavController().navigate(R.id.action_addNewReceiptBottomSheetFragment_to_drawerReceipt)
                 Toast.makeText(
                     requireContext(),
@@ -59,7 +59,7 @@ class AddNewReceiptBottomSheetFM : BottomSheetDialogFragment(), View.OnClickList
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            R.id.acbCancle -> Toast.makeText(requireContext(), "Cancle", Toast.LENGTH_SHORT).show()
+            R.id.acbCancle -> Toast.makeText(requireContext(), "Cancel", Toast.LENGTH_SHORT).show()
         }
     }
 

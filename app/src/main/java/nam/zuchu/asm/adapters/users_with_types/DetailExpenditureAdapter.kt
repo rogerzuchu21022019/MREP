@@ -1,18 +1,22 @@
 package nam.zuchu.asm.adapters.users_with_types
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import nam.zuchu.asm.databinding.ItemRvDetailExpenditureBinding
 import nam.zuchu.asm.models.users.UsersItem
 import nam.zuchu.asm.models.userswithtypes.UsersWithTypesItem
 
 class DetailExpenditureAdapter :
     RecyclerView.Adapter<DetailExpenditureAdapter.DetailExpenditureViewHolder>() {
-
-    var listDetailExpenditure: List<UsersWithTypesItem> = emptyList()
+    var listDetail :List<UsersWithTypesItem> = emptyList()
     var listUser: List<UsersItem> = emptyList()
+    var user:UsersItem?=null
     lateinit var layoutInflater: LayoutInflater
     lateinit var itemRvDetailExpenditureBinding: ItemRvDetailExpenditureBinding
 
@@ -20,9 +24,10 @@ class DetailExpenditureAdapter :
         RecyclerView.ViewHolder(itemRvDetailExpenditureBinding.root) {
 
     }
-     fun setDataForAdapter(listDetailExpenditure: List<UsersWithTypesItem>,listUser: List<UsersItem>){
-        this.listDetailExpenditure = listDetailExpenditure
+     fun setDataForAdapter(listUser: List<UsersItem>, listDetail:List<UsersWithTypesItem>){
          this.listUser = listUser
+         this.listDetail = listDetail
+
         notifyDataSetChanged()
     }
 
@@ -33,14 +38,14 @@ class DetailExpenditureAdapter :
     }
 
     override fun onBindViewHolder(holder: DetailExpenditureViewHolder, position: Int) {
-        val currentDetail = listDetailExpenditure[position]
-        val currentUser = listUser[position]
-        itemRvDetailExpenditureBinding.user = currentUser
-        
+        var currentDetail = listDetail[position]
+        var currentUser = listUser[position]
+
+         itemRvDetailExpenditureBinding.user = currentUser
         itemRvDetailExpenditureBinding.detail = currentDetail
     }
 
     override fun getItemCount(): Int {
-        return listDetailExpenditure.size
+        return listDetail.size
     }
 }

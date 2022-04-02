@@ -53,7 +53,7 @@
                 app:endIconMode="clear_text"
                 app:helperText="@string/require"
                 app:helperTextEnabled="true"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@id/tilStatus"
                 android:orientation="vertical"
                 app:helperTextTextColor="@color/red"
                 tools:ignore="MissingConstraints">
@@ -85,7 +85,7 @@
                 app:endIconMode="clear_text"
                 app:helperText="@string/require"
                 app:helperTextEnabled="true"
-                app:layout_constraintTop_toBottomOf="@id/tilNameOfReceipt"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
                 android:orientation="vertical"
                 app:helperTextTextColor="@color/red"
                 tools:ignore="MissingConstraints">
@@ -95,7 +95,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/press_status"
-
                     android:textColor="@color/red"
                     android:textColorHint="@color/red"
                     android:textSize="16sp" />
@@ -110,7 +109,7 @@
                 app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintEnd_toStartOf="@id/acbOkExpenditure"
                 app:layout_constraintStart_toStartOf="@id/tilStatus"
-                app:layout_constraintTop_toBottomOf="@id/tilStatus"
+                app:layout_constraintTop_toBottomOf="@id/tilNameOfReceipt"
                 tools:ignore="MissingConstraints" />
 
             <androidx.appcompat.widget.AppCompatButton

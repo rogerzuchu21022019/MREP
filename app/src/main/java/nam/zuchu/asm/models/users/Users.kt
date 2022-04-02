@@ -1,3 +1,7 @@
 package nam.zuchu.asm.models.users
 
-abstract class Users : List<UsersItem>
+import com.google.gson.annotations.Expose
+
+ class Users : ArrayList<UsersItem>(){
+
+ }

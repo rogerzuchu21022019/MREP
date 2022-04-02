@@ -10,9 +10,9 @@
             name="user"
             type="nam.zuchu.asm.models.users.UsersItem" />
 
-<variable
-    name="detail"
-    type="nam.zuchu.asm.models.userswithtypes.UsersWithTypesItem" />
+        <variable
+            name="detail"
+            type="nam.zuchu.asm.models.userswithtypes.UsersWithTypesItem" />
     </data>
 
 
@@ -155,7 +155,7 @@
                     android:layout_width="wrap_content"
 
                     android:layout_height="wrap_content"
-                    android:text="@{detail.date}"
+                    android:text="@{detail.date,default = `22/12/2021`}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"
                     android:textStyle="bold"

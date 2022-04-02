@@ -29,7 +29,7 @@
             app:layout_constraintTop_toBottomOf="@id/viewDivide"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="Add Kind of Receipts"
+            android:text="@string/add_name_of_receipt"
             android:textSize="@dimen/_20sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/tilStatus"
 
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"
@@ -72,12 +72,12 @@
             android:id="@+id/acbCancle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel"
+            android:text="@string/cancel"
             android:background="@drawable/custom_circle_indicator"
             app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintEnd_toStartOf="@id/acbOK"
             app:layout_constraintStart_toStartOf="@id/tilNameOfReceipt"
-            app:layout_constraintTop_toBottomOf="@id/tilStatus"
+            app:layout_constraintTop_toBottomOf="@id/tilNameOfReceipt"
             tools:ignore="MissingConstraints" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -107,7 +107,7 @@
             app:endIconMode="clear_text"
             app:helperText="@string/require"
             app:helperTextEnabled="true"
-            app:layout_constraintTop_toBottomOf="@id/tilNameOfReceipt"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
 
             android:orientation="vertical"
             app:helperTextTextColor="@color/red"

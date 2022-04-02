@@ -4,7 +4,8 @@ import com.google.gson.annotations.Expose
 import nam.zuchu.asm.models.userswithtypes.UsersWithTypesItem
 
 data class UsersItem(
-    val UsersWithTypes: List<UsersWithTypesItem>,
+    @Expose
+    var UsersWithTypes: List<UsersWithTypesItem>,
     @Expose
     val age: Int,
     @Expose

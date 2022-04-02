@@ -16,6 +16,7 @@ import nam.zuchu.asm.R
 import nam.zuchu.asm.databinding.FragmentAddNewExpenditureBottomSheetBinding
 import nam.zuchu.asm.networks.API
 import nam.zuchu.asm.networks.APIService
+import java.util.*
 
 @DelicateCoroutinesApi
 class AddNewExpenditureBottomSheetFM : BottomSheetDialogFragment(), View.OnClickListener {
@@ -31,6 +32,7 @@ class AddNewExpenditureBottomSheetFM : BottomSheetDialogFragment(), View.OnClick
         fmAddNewExpenditureBinding = FragmentAddNewExpenditureBottomSheetBinding.inflate(layoutInflater)
         initClick()
         return fmAddNewExpenditureBinding.root
+
     }
 
     private fun initClick() {
@@ -42,10 +44,12 @@ class AddNewExpenditureBottomSheetFM : BottomSheetDialogFragment(), View.OnClick
         val id = view?.id
         when (id) {
             R.id.acbOkExpenditure -> {
-                val typesOfName = fmAddNewExpenditureBinding.tieStatus.text.toString().trim()
-                val status = fmAddNewExpenditureBinding.tieNameOfReceipt.text.toString().trim()
+                val status = fmAddNewExpenditureBinding.tieStatus.text.toString().trim()
+                val typesOfName = fmAddNewExpenditureBinding.tieNameOfReceipt.text.toString().trim()
                 GlobalScope.launch(Dispatchers.IO){
-                    apiService.createNewType( typeOfName = typesOfName,status = status)
+                    // TODO: When Add new request,In Layout XML of Fragment, Data will get by STT in Layout XML
+                    // TODO: So I will notice it to get data exactly better
+                    apiService.createNewType( typeOfName = typesOfName, status = status) // TODO: parameters same in the layout FragmentAddNewExpenditureBottomSheetBinding
                 }
                 findNavController().navigate(R.id.action_addNewExpenditureBottomSheetFragment_to_drawerExpenditure)
                 Toast.makeText(
@@ -54,7 +58,7 @@ class AddNewExpenditureBottomSheetFM : BottomSheetDialogFragment(), View.OnClick
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            R.id.acbCancleExpenditure -> Toast.makeText(requireContext(), "Cancle", Toast.LENGTH_SHORT).show()
+            R.id.acbCancleExpenditure -> Toast.makeText(requireContext(), "Cancel", Toast.LENGTH_SHORT).show()
         }
     }
 
