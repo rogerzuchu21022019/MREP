@@ -1,129 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    style="@style/CustomShapeAppearanceBottomSheetDialog"
-    android:layout_height="match_parent">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/CustomShapeAppearanceBottomSheetDialog"
         android:layout_width="match_parent"
-        android:id="@+id/clBg"
-        app:layout_behavior="com.google.android.material.bott"
-        android:layout_height="match_parent"
-        tools:context=".fragments.crud.AddNewReceiptBottomSheetFM">
-        <View
-            android:id="@+id/viewDivide"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_width="@dimen/_40sdp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_height="@dimen/_5sdp"
-            android:background="@color/gray"
-            tools:ignore="MissingConstraints" />
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_marginTop="@dimen/_20sdp"
-            app:layout_constraintTop_toBottomOf="@id/viewDivide"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/add_name_of_receipt"
-            android:textSize="@dimen/_20sdp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
+        android:layout_height="match_parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilNameOfReceipt"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clBg"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tilStatus"
+            android:layout_height="match_parent"
+            android:background="@drawable/custom_bottom_sheet"
+            app:layout_behavior="com.google.android.material.bott"
+            tools:context=".fragments.crud.AddNewReceiptBottomSheetFM">
 
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusTopEnd="@dimen/_20sdp"
-            app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
-            app:boxCornerRadiusBottomStart="@dimen/_20sdp"
-            app:boxCornerRadiusTopStart="@dimen/_20sdp"
-            app:counterEnabled="true"
-            app:counterMaxLength="50"
-            app:endIconMode="clear_text"
-            app:helperText="@string/require"
-            app:helperTextEnabled="true"
-            android:orientation="vertical"
-            app:helperTextTextColor="@color/red"
-            tools:ignore="MissingConstraints">
+            <View
+                android:id="@+id/viewDivide"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tieNameOfReceipt"
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/add_name_of_receipt"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewDivide"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNameOfReceipt"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Press name of receipt"
-                android:textColor="@color/red"
-                android:textColorHint="@color/red"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:orientation="vertical"
+                android:textColorHint="@color/white"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_20sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_20sdp"
+                app:boxCornerRadiusTopStart="@dimen/_20sdp"
+                app:counterEnabled="true"
+                app:counterMaxLength="50"
+                app:counterTextColor="@color/white"
+                app:endIconMode="clear_text"
+                app:helperText="@string/require"
+                app:helperTextEnabled="true"
+                app:helperTextTextColor="@color/red"
+                app:hintTextColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/tilStatus"
+                tools:ignore="MissingConstraints">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/acbCancle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/cancel"
-            android:background="@drawable/custom_circle_indicator"
-            app:layout_constraintHorizontal_bias="0.2"
-            app:layout_constraintEnd_toStartOf="@id/acbOK"
-            app:layout_constraintStart_toStartOf="@id/tilNameOfReceipt"
-            app:layout_constraintTop_toBottomOf="@id/tilNameOfReceipt"
-            tools:ignore="MissingConstraints" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tieNameOfReceipt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Press name of receipt"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/acbOK"
-            android:background="@drawable/custom_circle_indicator"
-            app:layout_constraintStart_toEndOf="@id/acbCancle"
-            app:layout_constraintTop_toTopOf="@id/acbCancle"
-            android:text="OK"
-            app:layout_constraintEnd_toEndOf="@id/tilStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilStatus"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusTopEnd="@dimen/_20sdp"
-            app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
-            app:boxCornerRadiusBottomStart="@dimen/_20sdp"
-            app:boxCornerRadiusTopStart="@dimen/_20sdp"
-            app:counterEnabled="true"
-            app:counterMaxLength="50"
-            app:endIconMode="clear_text"
-            app:helperText="@string/require"
-            app:helperTextEnabled="true"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/acbCancle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_circle_indicator"
+                android:text="@string/cancel"
+                app:layout_constraintEnd_toStartOf="@id/acbOK"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toStartOf="@id/tilNameOfReceipt"
+                app:layout_constraintTop_toBottomOf="@id/tilNameOfReceipt"
+                tools:ignore="MissingConstraints" />
 
-            android:orientation="vertical"
-            app:helperTextTextColor="@color/red"
-            tools:ignore="MissingConstraints">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/acbOK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_circle_indicator"
+                android:text="OK"
+                app:layout_constraintEnd_toEndOf="@id/tilStatus"
+                app:layout_constraintStart_toEndOf="@id/acbCancle"
+                app:layout_constraintTop_toTopOf="@id/acbCancle"
+                tools:ignore="MissingConstraints" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tieStatus"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilStatus"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Press status"
-                android:textColor="@color/red"
-                android:textColorHint="@color/red"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:orientation="vertical"
+                android:textColorHint="@color/white"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_20sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_20sdp"
+                app:boxCornerRadiusTopStart="@dimen/_20sdp"
+                app:counterEnabled="true"
+                app:counterMaxLength="50"
+                app:counterTextColor="@color/white"
+                app:endIconMode="clear_text"
+                app:helperText="@string/require"
+                app:helperTextEnabled="true"
+                app:helperTextTextColor="@color/red"
+                app:hintTextColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                tools:ignore="MissingConstraints">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tieStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Press status"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </layout>

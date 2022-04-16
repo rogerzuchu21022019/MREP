@@ -47,7 +47,7 @@ interface APIService {
         @Query("username") username: String
     ) :Response<UsersItem>
 
-
+    // TODO: POST
     @FormUrlEncoded
     @POST("api/users")
     suspend fun createNewUser(
@@ -76,4 +76,17 @@ interface APIService {
         @Field("totalMoney") totalMoney: Double,
         @Field("userName") userName: String,
     ): Response<UsersWithTypesItem>
+
+
+    // TODO: DELETE
+    @DELETE("api/delete-type/{id}")
+    suspend fun deleteTypeOfExpenditure(
+        @Path("id") id:Int
+    )
+
+    @DELETE("api/delete-detail/{id}/{userName}")
+    suspend fun deleteDetail(
+        @Path("id") id:Int,
+        @Path("userName") userName: String
+    )
 }

@@ -65,6 +65,9 @@
         <action
             android:id="@+id/action_addNewReceiptBottomSheetFragment_to_drawerReceipt"
             app:destination="@id/drawerReceipt" />
+        <argument
+            android:name="type"
+            app:argType="nam.zuchu.asm.models.types.TypesItem" />
     </dialog>
     <fragment
         android:id="@+id/listExpendituresFM"

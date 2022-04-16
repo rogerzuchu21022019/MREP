@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import nam.zuchu.asm.AppKey.AVATAR_USER
 import nam.zuchu.asm.R
 import nam.zuchu.asm.databinding.FragmentAddNewExpenditureBottomSheetBinding
 import nam.zuchu.asm.networks.API
@@ -29,7 +31,8 @@ class AddNewExpenditureBottomSheetFM : BottomSheetDialogFragment(), View.OnClick
         savedInstanceState: Bundle?
     ): View? {
 
-        fmAddNewExpenditureBinding = FragmentAddNewExpenditureBottomSheetBinding.inflate(layoutInflater)
+        fmAddNewExpenditureBinding =
+            FragmentAddNewExpenditureBottomSheetBinding.inflate(layoutInflater)
         initClick()
         return fmAddNewExpenditureBinding.root
 
@@ -46,10 +49,13 @@ class AddNewExpenditureBottomSheetFM : BottomSheetDialogFragment(), View.OnClick
             R.id.acbOkExpenditure -> {
                 val status = fmAddNewExpenditureBinding.tieStatus.text.toString().trim()
                 val typesOfName = fmAddNewExpenditureBinding.tieNameOfReceipt.text.toString().trim()
-                GlobalScope.launch(Dispatchers.IO){
+                GlobalScope.launch(Dispatchers.IO) {
                     // TODO: When Add new request,In Layout XML of Fragment, Data will get by STT in Layout XML
                     // TODO: So I will notice it to get data exactly better
-                    apiService.createNewType( typeOfName = typesOfName, status = status) // TODO: parameters same in the layout FragmentAddNewExpenditureBottomSheetBinding
+                    apiService.createNewType(
+                        typeOfName = typesOfName,
+                        status = status
+                    ) // TODO: parameters same in the layout FragmentAddNewExpenditureBottomSheetBinding
                 }
                 findNavController().navigate(R.id.action_addNewExpenditureBottomSheetFragment_to_drawerExpenditure)
                 Toast.makeText(
@@ -58,7 +64,11 @@ class AddNewExpenditureBottomSheetFM : BottomSheetDialogFragment(), View.OnClick
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            R.id.acbCancleExpenditure -> Toast.makeText(requireContext(), "Cancel", Toast.LENGTH_SHORT).show()
+            R.id.acbCancleExpenditure -> Toast.makeText(
+                requireContext(),
+                "Cancel",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

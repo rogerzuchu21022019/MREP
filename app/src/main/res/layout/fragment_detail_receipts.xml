@@ -11,46 +11,26 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilAutoUserName"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
-            android:hint="@string/choose_username"
-            app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
-            app:boxCornerRadiusBottomStart="@dimen/_20sdp"
-            app:boxCornerRadiusTopEnd="@dimen/_20sdp"
-            app:boxCornerRadiusTopStart="@dimen/_20sdp"
-            app:helperText="Choose"
-            app:helperTextEnabled="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:helperTextTextColor="@color/red"
-            app:hintTextColor="@color/primary"
+        <ProgressBar
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
-
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteUserName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fallbackLineSpacing="true"
-                android:paddingStart="@dimen/_10sdp"
-                tools:ignore="LabelFor,RtlSymmetry,UnusedAttribute" />
-            <!--                android:text="@{user.userName}"-->
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone"
+            android:id="@+id/pbWait"
+            tools:ignore="MissingConstraints" />
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTypesOfName"
-            app:layout_constraintTop_toBottomOf="@id/tilAutoUserName"
+            app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/item_rv_detail_receipt"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="?attr/actionBarSize"
             android:layout_width="match_parent"
             android:layout_height="0dp"/>
 

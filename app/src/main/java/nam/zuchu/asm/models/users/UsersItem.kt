@@ -9,7 +9,7 @@ data class UsersItem(
     @Expose
     val age: Int,
     @Expose
-    val avartar: String,
+    var avartar: String,
     @Expose
     val email: String,
     @Expose

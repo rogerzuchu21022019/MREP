@@ -7,16 +7,16 @@
         android:title="Home FM" />
     <item
         android:id="@+id/drawerReceipt"
-        android:icon="@drawable/home"
+        android:icon="@drawable/receipt"
 
         android:title="Receipt FM" />
     <item
         android:id="@+id/drawerExpenditure"
-        android:icon="@drawable/home"
+        android:icon="@drawable/expenditures"
         android:title="Expenditure FM" />
     <item
         android:id="@+id/drawerStatistic"
-        android:icon="@drawable/home"
+        android:icon="@drawable/analytics"
         android:title="Statistic FM" />
 
 

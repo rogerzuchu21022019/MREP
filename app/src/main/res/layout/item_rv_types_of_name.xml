@@ -48,7 +48,14 @@
             android:textSize="@dimen/_12sdp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvStatus"
+            app:layout_constraintEnd_toStartOf="@id/ivUpdate"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/ivUpdate"
+            android:src="@drawable/update"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
             tools:ignore="MissingConstraints" />
 
 

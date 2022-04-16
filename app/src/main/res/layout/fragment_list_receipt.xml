@@ -11,6 +11,16 @@
         android:layout_width="match_parent"
         android:layout_margin="@dimen/_8sdp"
         android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/pbWait"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            tools:ignore="MissingConstraints" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clTitle"

@@ -21,8 +21,10 @@
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navView"
             android:layout_gravity="start"
+            android:background="@drawable/view"
             app:headerLayout="@layout/header_layout_1"
             app:menu="@menu/drawer_menu"
+            app:itemTextColor="@color/red"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </androidx.drawerlayout.widget.DrawerLayout>

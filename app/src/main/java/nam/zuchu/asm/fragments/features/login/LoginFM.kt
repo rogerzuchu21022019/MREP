@@ -14,26 +14,39 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import nam.zuchu.asm.R
 import nam.zuchu.asm.activities.DrawerLayoutActivity
 import nam.zuchu.asm.databinding.FragmentLoginBinding
+import nam.zuchu.asm.networks.API
+import nam.zuchu.asm.networks.APIService
 import java.lang.Exception
 
+@DelicateCoroutinesApi
 class LoginFM : Fragment(), View.OnClickListener {
     var fmLogin: FragmentLoginBinding? = null
     var navController: NavController? = null
     var auth: FirebaseAuth? = null
+    var apiService: APIService = API.getAPI().create(APIService::class.java)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         fmLogin = FragmentLoginBinding.inflate(layoutInflater)
+        getDataFromAPI()
         initButton()
         initNavController()
         initFBAuth()
         hideKeyBoard()
         return fmLogin!!.root
+    }
+
+    private fun getDataFromAPI() {
+
     }
 
     private fun initNavController() {
@@ -74,10 +87,17 @@ class LoginFM : Fragment(), View.OnClickListener {
         val fbEmail: String = fmLogin!!.tieEmailLogin.text.toString().trim()
         val fbPassword: String = fmLogin!!.tiePassWord.text.toString().trim()
         if (TextUtils.isEmpty(fbEmail) || TextUtils.isEmpty(fbPassword)) {
-            Toast.makeText(requireContext(),"Please press your email and pasword",Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                "Please press your email and pasword",
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
+
+
         auth = FirebaseAuth.getInstance()
+
         auth!!.signInWithEmailAndPassword(fbEmail, fbPassword)
             .addOnCompleteListener(requireActivity()){
                 if (it.isSuccessful) {

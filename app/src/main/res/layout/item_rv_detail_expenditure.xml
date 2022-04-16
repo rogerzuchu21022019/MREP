@@ -5,22 +5,36 @@
 
     <data>
 
+        <import type="java.util.List" />
+
+        <import type="nam.zuchu.asm.models.users.UsersItem" />
+
+        <import type="nam.zuchu.asm.models.userswithtypes.UsersWithTypesItem" />
 
         <variable
             name="user"
-            type="nam.zuchu.asm.models.users.UsersItem" />
+            type="UsersItem" />
+
 
         <variable
             name="detail"
-            type="nam.zuchu.asm.models.userswithtypes.UsersWithTypesItem" />
-    </data>
+            type="UsersWithTypesItem" />
 
+        <variable
+            name="listDetail"
+            type="List&lt;UsersWithTypesItem&gt;" />
+        <variable
+            name="listUsers"
+            type="List&lt;UsersItem&gt;" />
+
+    </data>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -141,7 +155,7 @@
                     android:id="@+id/tvID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{String.valueOf(detail.idType),default=1}"
+                    android:text="@{String.valueOf(user.usersWithTypes[0].idType),default=1}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"
                     android:textStyle="bold"
@@ -153,9 +167,8 @@
                 <TextView
                     android:id="@+id/tvDate"
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-                    android:text="@{detail.date,default = `22/12/2021`}"
+                    android:text="@{user.usersWithTypes[0].date}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"
                     android:textStyle="bold"
@@ -167,9 +180,8 @@
                 <TextView
                     android:id="@+id/tvDescription"
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-                    android:text="@{detail.description,default=`Di Choi di nhau`}"
+                    android:text="@{user.usersWithTypes[0].description}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"
                     android:textStyle="bold"
@@ -182,7 +194,7 @@
                     android:id="@+id/tvTotalMoney"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{String.valueOf(detail.totalMoney),default =`50000`}"
+                    android:text="@{String.valueOf(user.usersWithTypes[0].totalMoney)}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"
                     android:textStyle="bold"
@@ -195,7 +207,7 @@
                     android:id="@+id/tvUserName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{detail.userName,default =`namzuchu`}"
+                    android:text="@{user.usersWithTypes[0].userName}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"
                     android:textStyle="bold"

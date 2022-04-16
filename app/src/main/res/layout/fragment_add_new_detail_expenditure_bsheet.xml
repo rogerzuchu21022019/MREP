@@ -17,14 +17,14 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clBg"
+            android:background="@drawable/custom_bottom_sheet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="com.google.android.material.bott"
-            tools:context=".fragments.crud.AddNewReceiptBottomSheetFM">
+>
 
             <View
                 android:id="@+id/viewDivide"
@@ -44,6 +44,7 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:text="@string/add_detail_of_expenditure"
                 android:textSize="@dimen/_20sdp"
+                android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/viewDivide"
@@ -65,7 +66,9 @@
                 app:helperText="Choose"
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/red"
-                app:hintTextColor="@color/primary"
+                android:textColorHint="@color/white"
+
+                app:hintTextColor="@color/white"
                 app:layout_constraintEnd_toEndOf="@id/tvTitle"
                 app:layout_constraintStart_toStartOf="@id/tvTitle"
                 app:layout_constraintTop_toBottomOf="@id/tvTitle"
@@ -75,6 +78,7 @@
                     android:id="@+id/autoCompleteUserName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     android:fallbackLineSpacing="true"
                     android:paddingStart="@dimen/_10sdp"
                     tools:ignore="LabelFor,RtlSymmetry,UnusedAttribute" />
@@ -86,6 +90,8 @@
                 android:id="@+id/tilID"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="0dp"
+                android:textColorHint="@color/white"
+
                 android:layout_height="wrap_content"
                 android:hint="@string/choose_name_of_expenditures"
                 app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
@@ -95,7 +101,7 @@
                 app:helperText="Choose"
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/red"
-                app:hintTextColor="@color/primary"
+                app:hintTextColor="@color/white"
                 app:layout_constraintEnd_toStartOf="@id/tvID"
                 app:layout_constraintStart_toStartOf="@id/tilAutoUserName"
                 app:layout_constraintTop_toBottomOf="@id/tilAutoUserName"
@@ -108,7 +114,7 @@
                     android:layout_height="wrap_content"
                     android:fallbackLineSpacing="true"
                     android:paddingStart="@dimen/_10sdp"
-                    android:textColor="@color/primary"
+                    android:textColor="@color/white"
                     tools:ignore="LabelFor,RtlSymmetry,UnusedAttribute" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/custom"
                 android:text="@string/calender"
-                android:textColor="@color/primary"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/tilAutoUserName"
                 app:layout_constraintStart_toStartOf="@id/tilAutoUserName"
@@ -133,8 +139,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
+                android:textColorHint="@color/white"
                 android:hint="@string/description"
                 android:orientation="vertical"
+                app:counterTextColor="@color/white"
                 app:boxBackgroundMode="outline"
                 app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_20sdp"
@@ -154,23 +162,25 @@
                     android:id="@+id/tieDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/primary"
+                    android:textColor="@color/white"
                     android:textColorHint="@color/red"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/tvID"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom"
                 android:gravity="center"
                 android:textSize="@dimen/_20sdp"
-                app:layout_constraintVertical_bias="0.2"
-                app:layout_constraintTop_toTopOf="@id/tilID"
-                app:layout_constraintEnd_toEndOf="@id/tilAutoUserName"
-                android:layout_width="@dimen/_40sdp"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@id/tilID"
-                android:layout_height="@dimen/_40sdp"
+                app:layout_constraintEnd_toEndOf="@id/tilAutoUserName"
+                app:layout_constraintTop_toTopOf="@id/tilID"
+                app:layout_constraintVertical_bias="0.2"
                 tools:ignore="MissingConstraints" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilTotal"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -181,6 +191,9 @@
                 android:hint="@string/press_total_money"
                 android:orientation="vertical"
                 app:boxBackgroundMode="outline"
+                android:textColorHint="@color/white"
+                app:counterTextColor="@color/white"
+
                 app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_20sdp"
                 app:boxCornerRadiusTopEnd="@dimen/_20sdp"
@@ -199,7 +212,7 @@
                     android:id="@+id/tieTotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/primary"
+                    android:textColor="@color/white"
                     android:textColorHint="@color/red"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -224,9 +237,6 @@
                 app:layout_constraintStart_toEndOf="@id/acbCancleDetail"
                 app:layout_constraintTop_toTopOf="@id/acbCancleDetail"
                 tools:ignore="MissingConstraints" />
-
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
